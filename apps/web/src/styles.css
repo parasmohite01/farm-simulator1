@@ -1,0 +1,95 @@
+/* Design tokens.
+   Palette is taken from the subject: black cotton soil, standing crop, irrigation
+   water. High contrast because this is read on a cheap phone in daylight.
+   Noto Sans is chosen for one concrete reason — it carries Devanagari, so the
+   Hindi and Marathi UI uses the same family at the same weights. */
+:root {
+  --ink:     #16211C;
+  --ink-2:   #46564C;
+  --surface: #EEF1EC;
+  --panel:   #FFFFFF;
+  --rule:    #C6D0C4;
+  --water:   #15618F;
+  --gain:    #2E6F3E;
+  --loss:    #9E2B1E;
+  --warn:    #A5701B;
+
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: 1.6rem;
+  --step-3: 2.2rem;
+
+  box-sizing: border-box;
+  font-family: 'Noto Sans', 'Noto Sans Devanagari', system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: inherit; }
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: var(--step-0);
+  line-height: 1.5;
+}
+
+/* Numbers are compared column-to-column all over this app, so they are lined up
+   rather than set in a monospace face. */
+.num { font-variant-numeric: tabular-nums; }
+
+.layout { display: grid; grid-template-columns: 320px 1fr; gap: 1px; background: var(--rule); min-height: 100vh; }
+@media (max-width: 760px) { .layout { grid-template-columns: 1fr; } }
+
+.rail, .stage { background: var(--surface); padding: 1.25rem; }
+.rail { position: sticky; top: 0; align-self: start; max-height: 100vh; overflow-y: auto; }
+
+h1 { font-size: var(--step-2); margin: 0 0 .25rem; letter-spacing: -0.01em; }
+h2 { font-size: var(--step-1); margin: 1.5rem 0 .75rem; }
+
+.field { margin-bottom: 1rem; }
+.field > label { display: flex; justify-content: space-between; gap: .5rem; font-weight: 500; margin-bottom: .35rem; }
+.field input[type="range"] { width: 100%; accent-color: var(--water); height: 2rem; }
+.field select, .field input[type="date"], .field input[type="number"] {
+  width: 100%; padding: .6rem; border: 1px solid var(--rule); border-radius: 4px;
+  background: var(--panel); color: inherit; font: inherit; min-height: 44px;
+}
+:focus-visible { outline: 3px solid var(--water); outline-offset: 2px; }
+
+.button {
+  width: 100%; min-height: 48px; border: 0; border-radius: 4px; cursor: pointer;
+  background: var(--ink); color: var(--panel); font: inherit; font-weight: 700;
+}
+.button.secondary { background: var(--panel); color: var(--ink); border: 1px solid var(--rule); }
+
+.bar { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center;
+       padding: .6rem 1.25rem; background: var(--ink); color: var(--surface); font-size: .875rem; }
+.bar.offline { background: var(--warn); color: #fff; }
+.bar .spacer { margin-left: auto; }
+
+.tag { display: inline-block; padding: .1rem .4rem; border: 1px solid currentColor;
+       border-radius: 3px; font-size: .75rem; }
+.tag.live { color: var(--gain); }
+.tag.cached { color: var(--warn); }
+.tag.default { color: var(--ink-2); }
+
+.headline { background: var(--panel); border: 1px solid var(--rule); padding: 1.25rem; }
+.headline .figure { font-size: var(--step-3); font-weight: 700; letter-spacing: -0.02em; }
+.gain { color: var(--gain); } .loss { color: var(--loss); }
+
+table { width: 100%; border-collapse: collapse; background: var(--panel); }
+th, td { padding: .6rem .75rem; text-align: right; border-bottom: 1px solid var(--rule); }
+th:first-child, td:first-child { text-align: left; }
+thead th { border-bottom: 2px solid var(--ink); font-weight: 700; }
+
+.why { background: var(--panel); border-left: 4px solid var(--water); padding: 1rem 1.25rem; }
+.why li { margin-bottom: .5rem; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+}
+
+/* Devanagari sits taller than Latin at the same size, so Hindi and Marathi get
+   a touch more line-height rather than a different family. */
+:lang(hi), :lang(mr) { line-height: 1.65; }

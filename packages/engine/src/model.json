@@ -1,0 +1,61 @@
+{
+  "_readme": "Every number here is a model assumption. Each carries a `source`. Member A owns this file and MUST verify each value against the cited source before demo day — the placeholder values below are indicative only. A judge asking 'where did this number come from?' is the most likely question you will get.",
+  "_sources": {
+    "baseYield": "ICAR / State Dept. of Agriculture district average yields — REPLACE with your district's figures",
+    "waterRequirementMm": "FAO Irrigation & Drainage Paper 56, seasonal crop water requirement (ETc)",
+    "ky": "FAO Irrigation & Drainage Paper 33, yield response factor to water deficit",
+    "price": "MSP notified by CACP for the relevant marketing season — VERIFY current year",
+    "costs": "CACP Cost of Cultivation (C2) tables — VERIFY for your state"
+  },
+  "economics": {
+    "labourWagePerDay": 350,
+    "fertilizerCostPerKgN": 28,
+    "irrigationCostPerMmHa": 95,
+    "machineryCostPerHa": 6000,
+    "landRentPerHa": 0
+  },
+  "risk": {
+    "priceCv": 0.18,
+    "rainfallCv": 0.30,
+    "yieldNoiseCv": 0.10,
+    "monteCarloRuns": 2000
+  },
+  "crops": {
+    "wheat": {
+      "label": "Wheat", "baseYieldQtlHa": 45, "waterRequirementMm": 450, "ky": 1.05,
+      "recommendedNKgHa": 120, "seedCostPerHa": 3000, "pricePerQuintal": 2425,
+      "sowingWindow": [305, 334], "sowingPenaltyPerDay": 0.008, "pestPressure": 0.5,
+      "recommendedProtectionHa": 2500
+    },
+    "rice": {
+      "label": "Rice", "baseYieldQtlHa": 55, "waterRequirementMm": 1200, "ky": 1.09,
+      "recommendedNKgHa": 120, "seedCostPerHa": 2200, "pricePerQuintal": 2369,
+      "sowingWindow": [166, 196], "sowingPenaltyPerDay": 0.009, "pestPressure": 0.8,
+      "recommendedProtectionHa": 4000
+    },
+    "cotton": {
+      "label": "Cotton", "baseYieldQtlHa": 20, "waterRequirementMm": 700, "ky": 0.85,
+      "recommendedNKgHa": 120, "seedCostPerHa": 4500, "pricePerQuintal": 7710,
+      "sowingWindow": [152, 181], "sowingPenaltyPerDay": 0.010, "pestPressure": 1.0,
+      "recommendedProtectionHa": 7000
+    },
+    "soybean": {
+      "label": "Soybean", "baseYieldQtlHa": 18, "waterRequirementMm": 500, "ky": 0.85,
+      "recommendedNKgHa": 30, "seedCostPerHa": 5000, "pricePerQuintal": 5328,
+      "sowingWindow": [166, 186], "sowingPenaltyPerDay": 0.012, "pestPressure": 0.7,
+      "recommendedProtectionHa": 3000
+    },
+    "gram": {
+      "label": "Gram (chana)", "baseYieldQtlHa": 20, "waterRequirementMm": 350, "ky": 1.00,
+      "recommendedNKgHa": 20, "seedCostPerHa": 4500, "pricePerQuintal": 5875,
+      "sowingWindow": [288, 319], "sowingPenaltyPerDay": 0.009, "pestPressure": 0.6,
+      "recommendedProtectionHa": 2500
+    },
+    "tur": {
+      "label": "Tur (pigeon pea)", "baseYieldQtlHa": 15, "waterRequirementMm": 450, "ky": 0.80,
+      "recommendedNKgHa": 25, "seedCostPerHa": 2000, "pricePerQuintal": 8000,
+      "sowingWindow": [161, 191], "sowingPenaltyPerDay": 0.007, "pestPressure": 0.9,
+      "recommendedProtectionHa": 3500
+    }
+  }
+}

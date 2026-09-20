@@ -1,0 +1,16 @@
+{
+  "name": "@farm/api",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@farm/engine": "*",
+    "better-sqlite3": "^11.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.0"
+  },
+  "devDependencies": { "tsx": "^4.19.0", "@types/express": "^5.0.0" }
+}

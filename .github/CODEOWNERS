@@ -1,0 +1,14 @@
+# Replace the placeholders with the real GitHub usernames.
+# GitHub auto-requests a review from the owner of every file a PR touches.
+# This is also the cleanest proof of who owned what, which is why it exists.
+
+/packages/engine/            @member-a
+/apps/web/src/ui/            @member-b
+/apps/web/src/compare/       @member-c
+/apps/web/src/platform/      @member-d
+/apps/api/                   @member-d
+/.github/                    @member-d
+
+# The contract and the model constants need everyone to agree.
+/packages/engine/src/types.ts    @member-a @member-b @member-c @member-d
+/packages/engine/src/model.json  @member-a @member-c
